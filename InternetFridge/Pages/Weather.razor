@@ -1,0 +1,47 @@
+﻿@page "/"
+@page "/Weather"
+@inherits WeatherBase
+
+    <div class="d-flex flex-column">
+        @if (CurrentWeather == null)
+        {
+            <div class="d-flex flex-row my-3">
+                <IconValuePair ImageName="sun.png" SpinIcon="true" Value="Loading weather data" Size="xl" />
+            </div>
+        }
+        else
+        {
+            <div class="d-flex flex-row my-3">
+                <div class="w-50 my-auto">
+                    <h3>@CurrentWeather.LocalDateAndTime</h3>
+                    <h1 class="display-4">@CurrentWeather.Location</h1>
+                </div>
+                <IconValuePair ImageName="sunrise.png" Value="@CurrentWeather.LocalSunrise" Width="25" Size="md" />
+                <IconValuePair ImageName="sunset.png" Value="@CurrentWeather.LocalSunset" Width="25" Size="md" />
+            </div>
+            <div class="d-flex flex-row">
+                <IconValuePair ImageName="@CurrentWeather.TemperatuteIconName" Value="@CurrentWeather.TemperatureWithUnit" Width="20" Size="xl" />
+                <IconValuePair ImageName="@CurrentWeather.WeatherConditionsIconName" Value="@CurrentWeather.WeatherConditionName" Width="40" Size="xl" />
+                <div class="d-flex flex-column align-items-center w-20">
+                    <IconValuePair ImageName="wind.png" Value="@CurrentWeather.WindSpeedWithUnit" Width="100" Height="50" Size="sm" />
+                    <IconValuePair ImageName="weathercock.png" Value="@CurrentWeather.WindDirectionName" Width="100" Height="50" Size="sm" />
+                </div>
+                <div class="d-flex flex-column align-items-center w-20">
+                    <IconValuePair ImageName="humidity.png" Value="@CurrentWeather.HumidityWithUnit" Width="100" Height="50" Size="sm" />
+                    <IconValuePair ImageName="pressure.png" Value="@CurrentWeather.PressureWithUnit" Width="100" Height="50" Size="sm" />
+                </div>
+            </div>
+        }
+
+        @if (Forecast == null)
+        {
+            <div class="d-flex flex-row my-3">
+                <IconValuePair ImageName="sun.png" SpinIcon="true" Value="Loading forecast data" Size="lg" />
+            </div>
+        }
+        else
+        {
+            
+            <ForecastStrip Forecast="@Forecast" />
+        }
+    </div>

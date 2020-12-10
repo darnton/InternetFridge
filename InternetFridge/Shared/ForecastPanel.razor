@@ -1,0 +1,11 @@
+﻿@inherits ForecastPanelBase
+
+    <div class="d-flex flex-column flex-shrink-0 w-15">
+        <div class="text-center small">@ForecastItem.LocalDate</div>
+        <div class="text-center">@ForecastItem.LocalTime</div>
+        <div class="text-center h3">@ForecastItem.TemperatureWithUnit</div>
+        <div class="text-center"><img src="img/@ForecastItem.WeatherConditionsIconName" class="img-fluid w-50" /></div>
+        <div class="text-center small">@ForecastItem.WindSpeedWithUnit</div>
+        <div class="text-center small">@ForecastItem.WindDirectionName <img src="img/down-arrow.png" style="height: 1.5em; transform: rotate(@ForecastItem.WindAngle);" /></div>
+        <div class="text-center">@ForecastItem.RainfallWithUnit</div>
+    </div>

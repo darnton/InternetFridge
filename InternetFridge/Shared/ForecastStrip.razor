@@ -1,0 +1,8 @@
+﻿@inherits ForecastStripBase
+
+    <div class="d-flex flex-row my-3" style="overflow-x: auto; white-space: nowrap">
+        @foreach (var item in Forecast.Items)
+        {
+            <ForecastPanel ForecastItem="@item" />
+        }
+    </div>
